@@ -8,7 +8,7 @@ class TrimmerTwigExtension extends \Twig_Extension
 
 	public function getName()
 	{
-		return 'Roi Kingon';
+		return 'Trimmer';
 	}
 
 	public function getFilters()
