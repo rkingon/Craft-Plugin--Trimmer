@@ -41,7 +41,6 @@ class TrimmerTwigExtension extends \Twig_Extension
 			$str = ( ($word) ? $this->_truncateByWord($str,$length) : substr($str,0,$length) ).$ellipsis;
 		}
 		
-		// Truncate by either word or char, then return with ellipsis
 		return $str;
 	}
 	
