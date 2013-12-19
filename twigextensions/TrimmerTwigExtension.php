@@ -35,14 +35,14 @@ class TrimmerTwigExtension extends \Twig_Extension
 		// Remove HTML tags.
 		$str = strip_tags($str);
 		
-		// No need if our total length is less than the strings length
-		if(strlen($str) <= $length)
+		// Only try and truncate / add ellipsis if our string length is longer than our length limit
+		if(strlen($str) > $length)
 		{
-			return $str;
+			$str = ( ($word) ? $this->_truncateByWord($str,$length) : substr($str,0,$length) ).$ellipsis;
 		}
 		
 		// Truncate by either word or char, then return with ellipsis
-		return ( ($word) ? $this->_truncateByWord($str,$length) : substr($str,0,$length) ).$ellipsis;
+		return $str;
 	}
 	
 	private function _truncateByWord($str, $length)
