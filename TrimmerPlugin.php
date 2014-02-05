@@ -24,7 +24,7 @@ class TrimmerPlugin extends BasePlugin
 		return 'http://www.roikingon.com';
 	}
 
-	public function hookAddTwigExtension()
+	public function addTwigExtension()
 	{
 		Craft::import('plugins.trimmer.twigextensions.TrimmerTwigExtension');
 		return new TrimmerTwigExtension();
