@@ -26,14 +26,17 @@ class TrimmerTwigExtension extends \Twig_Extension
 		$this->env = $env;
 	}
 
-	public function trimit($str, $length, $word = true, $ellipsis = "...")
+	public function trimit($str, $length, $word = true, $html = true, $ellipsis = "...")
 	{
 		// Let's make sure our inputs are correct
 		$length = (!is_numeric($length)) ? 100 : $length;
 		$word = (!in_array(strtolower($word), array("no","false")) || $word !== false);
 		
 		// Remove HTML tags.
-		$str = $this->_strip_html_tags($str);
+        if ($html != true)
+        {
+		  $str = $this->_strip_html_tags($str);
+        }
 		
 		// Only try and truncate / add ellipsis if our string length is longer than our length limit
 		if(strlen($str) > $length)

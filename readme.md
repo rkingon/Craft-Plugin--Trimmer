@@ -26,11 +26,16 @@ A smart trimming / truncating plugin for Craft.
 
 `{{ entry.body | trimit(100, "false", "") }}`
 
+#### Truncate and keep HTML tags (Rich Text)
+
+* Set 3rd parameter as true or false, true to keep html tags
+
+`{{ entry.body | trimit(100, true, true, "") }}`
+
 #### Multiple variables or a combination of strings
     {% filter trimit(100) %}
         {{ someVar }} {{ someOtherVar }}
     {% endfilter %}
 
 ##Notes
-* HTML Tags are always removed.
 * If the length of your string is less than the length defined then the plugin will return the full string with out html tags & no ellipsis.
